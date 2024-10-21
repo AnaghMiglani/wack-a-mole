@@ -11,11 +11,11 @@ pygame.display.set_caption("Whack_a_Mole")
 bg = pygame.image.load("whackamole.jpg")
 
 def bgmusic():
-    a = pygame.mixer.Sound("D:\downloads\pinball.mp3")
+    a = pygame.mixer.Sound("pinball.mp3")
     a.play(-1)
 
 def clickmole():
-    a = pygame.mixer.Sound("D:\downloads\coin.mp3")
+    a = pygame.mixer.Sound("coin.mp3")
     a.play()
     a.set_volume(0.5)
 
@@ -44,8 +44,8 @@ while running:
             hx, hy = hammer[0], hammer[1]
 
             clickstr = pygame.Rect((CRx, CRy, 50, 50))
-            screen.blit(pygame.image.load("D:\desktop\mole.png"), clickstr)
-            screen.blit(pygame.image.load("D:\desktop\hammer.png"), (hx - 14, hy - 10))
+            screen.blit(pygame.image.load("mole.png"), clickstr)
+            screen.blit(pygame.image.load("hammer.png"), (hx - 14, hy - 10))
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if clickstr.collidepoint(hammer):
@@ -61,14 +61,14 @@ while running:
                 game_active = False
 
         else:
-            screen.blit(pygame.image.load("D:\desktop\gameover.jpg"), (0, 0))
+            screen.blit(pygame.image.load("gameover.jpg"), (0, 0))
             pygame.mouse.set_visible(True)
             endtext = "Score = " + str(clicks)
             font = pygame.font.SysFont("Arial", 40)
             score = font.render(endtext, True, (0, 0, 0))
             screen.blit(score, (450, 200))
             playagain = pygame.Rect((429, 328, 164, 174))
-            screen.blit(pygame.image.load("D:\desktop\greplay.jpg"), playagain)
+            screen.blit(pygame.image.load("greplay.jpg"), playagain)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if playagain.collidepoint(pygame.mouse.get_pos()):
